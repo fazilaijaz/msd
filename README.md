@@ -11,7 +11,7 @@ To demonstrate skillset of ETL, Hive and Spark. Develop automation pipeline to i
 
 ### Installing and Testing the setup
 
-Follow the (docs/Setup_hadoop_environment.docx) guide to setup the hortonworks sandbox using VM Player on windows.
+Follow the (doc/Setup_hadoop_environment.docx) guide to setup the hortonworks sandbox using VM Player on windows.
 
 ## Running the scripts
 
