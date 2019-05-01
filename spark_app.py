@@ -3,7 +3,7 @@ from pyspark import SparkConf, SparkContext
 from pyspark.sql.types import *
 from pyspark.sql import *
 from datetime import datetime
-conf = SparkConf().setAppName("Data_Value by year for all age groups")
+conf = SparkConf().setAppName("Spark application to find data value average")
 sc = SparkContext(conf=conf)
 queryContext = HiveContext(sc)
 queryContext.sql("""use msd""")
