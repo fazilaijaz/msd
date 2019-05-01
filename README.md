@@ -15,8 +15,8 @@ Follow the (doc/Setup_hadoop_environment.docx) guide to setup the hortonworks sa
 
 ## Running the scripts
 
-- Run Sandbox Hortonworks Sandbox through VM Player Open SSH connection to VM in Browser.
-192.168.122.128:4200
+- Run Sandbox Hortonworks Sandbox through VM Player Open SSH connection to VM in Browser on port 4200.
+(example : 192.168.122.128:4200)
 - Login using maria_dev
 
 - Clone or download
