@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>CSV File to HTML Table Using AJAX jQuery</title>
+  <script src="jquery.min.js"></script>
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <script src="bootstrap.min.js"></script>
+ </head>
+ <body>
+  <div class="container">
+   <div class="table-responsive">
+    <h1 align="center">MSD Data visualization</h1>
+    <br />
+    <div align="center">
+     <button type="button" name="load_nutrition" id="load_nutrition" class="btn btn-info">Nutrition data</button>
+     <button type="button" name="load_age" id="load_age" class="btn btn-info">Data_Value by year for all age groups</button>
+     <button type="button" name="load_fem" id="load_fem" class="btn btn-info">Data_Value by year for female</button>
+    </div>
+    <br />
+    <div id="employee_table">
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
+
+<script>
+$(document).ready(function(){
+ $('#load_nutrition').click(function(){
+  $.ajax({
+   url:"nutrition.csv",
+   dataType:"text",
+   success:function(data)
+   {
+    var nutrition_data = data.split(/\r?\n|\r/);
+    var table_data = '<table class="table table-bordered table-striped">';
+    for(var count = 0; count<nutrition_data.length; count++)
+    {
+     var cell_data = nutrition_data[count].split("|");
+     table_data += '<tr>';
+     for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+     {
+      if(count === 0)
+      {
+       table_data += '<th>'+cell_data[cell_count]+'</th>';
+      }
+      else
+      {
+       table_data += '<td>'+cell_data[cell_count]+'</td>';
+      }
+     }
+     table_data += '</tr>';
+    }
+    table_data += '</table>';
+    $('#employee_table').html(table_data);
+   }
+  });
+ });
+ 
+  $('#load_age').click(function(){
+  $.ajax({
+   url:"data_value_by_year_age.csv",
+   dataType:"text",
+   success:function(data)
+   {
+    var nutrition_data = data.split(/\r?\n|\r/);
+    var table_data = '<table class="table table-bordered table-striped">';
+    for(var count = 0; count<nutrition_data.length; count++)
+    {
+     var cell_data = nutrition_data[count].split("|");
+     table_data += '<tr>';
+     for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+     {
+      if(count === 0)
+      {
+       table_data += '<th>'+cell_data[cell_count]+'</th>';
+      }
+      else
+      {
+       table_data += '<td>'+cell_data[cell_count]+'</td>';
+      }
+     }
+     table_data += '</tr>';
+    }
+    table_data += '</table>';
+    $('#employee_table').html(table_data);
+   }
+  });
+ });
+ 
+  $('#load_fem').click(function(){
+  $.ajax({
+   url:"data_value_by_year_female.csv",
+   dataType:"text",
+   success:function(data)
+   {
+    var nutrition_data = data.split(/\r?\n|\r/);
+    var table_data = '<table class="table table-bordered table-striped">';
+    for(var count = 0; count<nutrition_data.length; count++)
+    {
+     var cell_data = nutrition_data[count].split("|");
+     table_data += '<tr>';
+     for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+     {
+      if(count === 0)
+      {
+       table_data += '<th>'+cell_data[cell_count]+'</th>';
+      }
+      else
+      {
+       table_data += '<td>'+cell_data[cell_count]+'</td>';
+      }
+     }
+     table_data += '</tr>';
+    }
+    table_data += '</table>';
+    $('#employee_table').html(table_data);
+   }
+  });
+ });
+ 
+});
+</script>
